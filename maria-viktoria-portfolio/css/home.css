@@ -1,0 +1,117 @@
+/* ── Home Page ── */
+
+.home-hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-hero__inner {
+  position: relative;
+  width: 100%;
+  padding-top: clamp(40px, 6vw, 100px);
+  padding-bottom: 80px;
+}
+
+/* ── M — V initials ── */
+.home-hero__initials {
+  display: flex;
+  align-items: center;
+  line-height: 0.85;
+  font-weight: 600;
+  font-size: var(--fs-h1-home);
+  color: var(--color-text);
+  user-select: none;
+}
+
+.home-hero__m { letter-spacing: -0.02em; }
+
+/* Tyre: підіймаємо через transform щоб стояло по центру капітальних літер */
+.home-hero__dash {
+  display: block;
+  width:  0.18em;
+  height: 0.055em;
+  background: var(--color-text);
+  margin: 0 0.05em;
+  flex-shrink: 0;
+  /* Outfit cap-height ≈ 0.73em, so center of caps = -0.365em from baseline.
+     Dash center = -height/2. Offset = cap_center - dash_center ≈ -0.34em */
+  transform: translateY(-0.34em);
+}
+
+.home-hero__v { letter-spacing: -0.02em; }
+
+/* ── Role — top right ── */
+.home-hero__role {
+  position: absolute;
+  top: clamp(40px, 6vw, 100px);
+  right: var(--grid-margin);
+  font-size: clamp(18px, 2.4vw, 36px);
+  font-weight: var(--fw-regular);
+  color: var(--color-text-secondary);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ── Intro paragraph ── */
+.home-hero__intro {
+  margin-top: clamp(32px, 4vw, 64px);
+  font-size: clamp(26px, 3.6vw, 52px);
+  font-weight: var(--fw-regular);
+  color: var(--color-text);
+  line-height: 1.2;
+  max-width: 780px;
+}
+
+/* ── Small detail ── */
+.home-hero__detail {
+  position: absolute;
+  right: var(--grid-margin);
+  bottom: 180px;
+  font-size: clamp(11px, 0.95vw, 15px);
+  font-weight: var(--fw-light);
+  color: var(--color-text-secondary);
+  text-align: right;
+  line-height: 1.7;
+}
+
+/* ── CTA ── */
+.home-hero__cta {
+  display: inline-block;
+  margin-top: clamp(20px, 2.5vw, 36px);
+  font-size: 17px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .home-hero__intro { max-width: 680px; }
+}
+
+@media (max-width: 1024px) {
+  .home-hero__role {
+    position: static;
+    margin-top: 12px;
+    font-size: clamp(16px, 2.2vw, 26px);
+    text-align: left;
+    white-space: normal;
+  }
+  .home-hero__detail {
+    position: static;
+    margin-top: 20px;
+    text-align: left;
+  }
+  .home-hero__intro { max-width: 85%; }
+}
+
+@media (max-width: 768px) {
+  .home-hero__intro {
+    max-width: 100%;
+    font-size: clamp(22px, 6.5vw, 38px);
+  }
+  .home-hero__detail {
+    position: static;
+    text-align: left;
+  }
+}
